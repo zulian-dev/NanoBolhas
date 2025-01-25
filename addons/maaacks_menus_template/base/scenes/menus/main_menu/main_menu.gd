@@ -47,6 +47,7 @@ func _setup_for_web():
 		%ExitButton.hide()
 
 func _setup_game_buttons():
+	
 	if game_scene_path.is_empty():
 		%NewGameButton.hide()
 
