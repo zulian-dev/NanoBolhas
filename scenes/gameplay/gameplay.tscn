@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqf26fm854xg1"]
+[gd_scene load_steps=7 format=3 uid="uid://bqf26fm854xg1"]
 
 [ext_resource type="PackedScene" uid="uid://bcfx5jldlwnwj" path="res://prefabs/player.tscn" id="1_6n7q7"]
 [ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_t06wy"]
 [ext_resource type="Script" path="res://scenes/gameplay/camera_2d.gd" id="3_4jd26"]
-[ext_resource type="PackedScene" uid="uid://bnlvl2ebp6oo2" path="res://prefabs/Enemy.tscn" id="3_xpbae"]
 
 [sub_resource type="Curve2D" id="Curve2D_dwb8l"]
 _data = {
@@ -74,29 +73,5 @@ show_percentage = false
 [node name="Timer" type="Timer" parent="Camera2D/Control/VBoxContainer/Panel"]
 wait_time = 2.0
 autostart = true
-
-[node name="Enemy" parent="." instance=ExtResource("3_xpbae")]
-
-[node name="Enemy2" parent="." instance=ExtResource("3_xpbae")]
-position = Vector2(594, -232)
-
-[node name="Enemy3" parent="." instance=ExtResource("3_xpbae")]
-position = Vector2(435, 60)
-
-[node name="Enemy4" parent="." instance=ExtResource("3_xpbae")]
-position = Vector2(732, -56)
-
-[node name="Enemy5" parent="." instance=ExtResource("3_xpbae")]
-position = Vector2(571, 250)
-
-[node name="Enemy6" parent="." instance=ExtResource("3_xpbae")]
-position = Vector2(868, 134)
-
-[node name="Enemy7" parent="." instance=ExtResource("3_xpbae")]
-position = Vector2(709, 426)
-
-[node name="Enemy8" parent="." instance=ExtResource("3_xpbae")]
-position = Vector2(-124, 274)
-xp = 5
 
 [connection signal="timeout" from="Camera2D/Control/VBoxContainer/Panel/Timer" to="." method="_on_timer_timeout"]
