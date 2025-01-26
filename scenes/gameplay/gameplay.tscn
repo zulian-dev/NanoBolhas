@@ -77,3 +77,24 @@ wait_time = 2.0
 [node name="Enemy" parent="." instance=ExtResource("3_xpbae")]
 
 [connection signal="timeout" from="Camera2D/Control/VBoxContainer/Panel/Timer" to="." method="_on_timer_timeout"]
+[node name="Enemy2" parent="." instance=ExtResource("3_xpbae")]
+position = Vector2(594, -232)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_xpbae")]
+position = Vector2(435, 60)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_xpbae")]
+position = Vector2(732, -56)
+
+[node name="Enemy5" parent="." instance=ExtResource("3_xpbae")]
+position = Vector2(571, 250)
+
+[node name="Enemy6" parent="." instance=ExtResource("3_xpbae")]
+position = Vector2(868, 134)
+
+[node name="Enemy7" parent="." instance=ExtResource("3_xpbae")]
+position = Vector2(709, 426)
+
+[node name="Enemy8" parent="." instance=ExtResource("3_xpbae")]
+position = Vector2(-124, 274)
+xp = 5

@@ -3,7 +3,6 @@ extends CharacterBody2D
 @export var speed = 400
 @export var level = 0
 @export var xp = 0
-@export var xp_next = 5
 @export var rotation_speed = 3
 var rotation_direction
 
@@ -19,6 +18,10 @@ var rotation_direction
 	#move_and_slide()
 	
 ## movimentação estilo carro
+@export var xp_next = 1
+
+@export var size = 1
+
 func get_input():
 	rotation_direction = Input.get_axis("left", "right")
 	velocity = transform.x * Input.get_axis("down", "up") * speed
@@ -34,6 +37,9 @@ func level_up(xpBase = 100, fatorCrescimento = 1.5):
 	#xp_next = floor(xpNecessario);
 	xp = 0
 	level += 1
+	size += 1 
+	var scale = 1 + ( size / 5 ) 
+	self.scale = Vector2(scale, scale)
 	
 func add_xp(param_xp:int):
 	print("GETXP")
