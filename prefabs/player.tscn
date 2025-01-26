@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcfx5jldlwnwj"]
+[gd_scene load_steps=15 format=3 uid="uid://bcfx5jldlwnwj"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/player.gd" id="1_rtdtm"]
 [ext_resource type="Texture2D" uid="uid://dqfich3akbe0k" path="res://icon.svg" id="2_o7rye"]
+[ext_resource type="Texture2D" uid="uid://bxgufh0xnxbu7" path="res://assets/sprites/Bolha.png" id="3_qbkbt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bjiwh"]
 radius = 79.2465
@@ -9,11 +10,81 @@ radius = 79.2465
 [sub_resource type="CircleShape2D" id="CircleShape2D_he4qe"]
 radius = 80.0062
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcwwl"]
+atlas = ExtResource("3_qbkbt")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hr1k"]
+atlas = ExtResource("3_qbkbt")
+region = Rect2(1000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpyb4"]
+atlas = ExtResource("3_qbkbt")
+region = Rect2(2000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dic1j"]
+atlas = ExtResource("3_qbkbt")
+region = Rect2(0, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv1j7"]
+atlas = ExtResource("3_qbkbt")
+region = Rect2(1000, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rumu1"]
+atlas = ExtResource("3_qbkbt")
+region = Rect2(2000, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tobfs"]
+atlas = ExtResource("3_qbkbt")
+region = Rect2(0, 2000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7i0m"]
+atlas = ExtResource("3_qbkbt")
+region = Rect2(1000, 2000, 1000, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tx5ft"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcwwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hr1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpyb4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dic1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gv1j7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rumu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tobfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7i0m")
+}],
+"loop": false,
+"name": &"eat",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["PLAYER"]]
 collision_mask = 2
 script = ExtResource("1_rtdtm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_o7rye")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -24,5 +95,11 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_he4qe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_tx5ft")
+animation = &"eat"
+autoplay = "default"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -21,7 +21,8 @@ var rotation_direction
 @export var xp_next = 1
 
 @export var size = 1
-
+@onready var camera_2d: CustomCamera2D = $"../Camera2D"
+@onready var enemy_spawn: Path2D = $"../EnemySpawn"
 func get_input():
 	rotation_direction = Input.get_axis("left", "right")
 	velocity = transform.x * Input.get_axis("down", "up") * speed
@@ -30,6 +31,9 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	rotation += rotation_direction * rotation_speed * delta
+	if !$AnimatedSprite2D.is_playing():
+		$AnimatedSprite2D.play("default")
+	
 	move_and_slide()
 
 func level_up(xpBase = 100, fatorCrescimento = 1.5):
@@ -37,10 +41,12 @@ func level_up(xpBase = 100, fatorCrescimento = 1.5):
 	#xp_next = floor(xpNecessario);
 	xp = 0
 	level += 1
-	size += 1 
+	size += 0.05
 	var scale = 1 + ( size / 5 ) 
-	self.scale = Vector2(scale, scale)
-	
+	var newScale  = Vector2(size, size)
+	self.scale = newScale
+	#enemy_spawn.scale = newScale
+	#camera_2d.zoom = Vector2(1-size,1-size)
 func add_xp(param_xp:int):
 	print("GETXP")
 	xp += param_xp
@@ -54,5 +60,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("ENEMIES"):
 		if body.has_method("get_xp"):
 			var xp = body.get_xp()
+			Globals.points += 10
+			Globals.updateProgress()
+			$AnimatedSprite2D.play("eat",2)
 			self.add_xp(xp)
 			body.die()
