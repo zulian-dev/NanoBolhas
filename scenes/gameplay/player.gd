@@ -52,9 +52,9 @@ func level_up(xpBase = 100, fatorCrescimento = 1.5):
 	#xp_next = floor(xpNecessario);
 	xp = 0
 	level += 1
-	size += 0.05
+	size += 0.3
 	var scale = 1 + ( size / 5 ) 
-	var newScale  = Vector2(size, size)
+	var newScale  = Vector2(scale, scale)
 	self.scale = newScale
 	#enemy_spawn.scale = newScale
 	#camera_2d.zoom = Vector2(1-size,1-size)
@@ -72,10 +72,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if body.has_method("get_xp"):
 			
 			var xp = body.get_xp()
+			
 			Globals.points += 10
 			Globals.updateProgress()
 			
 			audio_stream_player_2d.play()
+			Globals.killed += 1
 			$AnimatedSprite2D.play("eat",2)
 			
 			self.add_xp(xp)
