@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqf26fm854xg1"]
+[gd_scene load_steps=8 format=3 uid="uid://bqf26fm854xg1"]
 
 [ext_resource type="PackedScene" uid="uid://bcfx5jldlwnwj" path="res://prefabs/player.tscn" id="1_6n7q7"]
 [ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_t06wy"]
+[ext_resource type="Texture2D" uid="uid://bfiv6sll4ytyc" path="res://assets/sprites/BackGround.png" id="2_lx6fv"]
 [ext_resource type="Script" path="res://scenes/gameplay/camera_2d.gd" id="3_4jd26"]
 
 [sub_resource type="Curve2D" id="Curve2D_dwb8l"]
@@ -18,6 +19,11 @@ bg_color = Color(0.398651, 0.691425, 0.0933063, 1)
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_t06wy")
+
+[node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(909.002, 1769)
+scale = Vector2(24.7863, 24.7863)
+texture = ExtResource("2_lx6fv")
 
 [node name="Player" parent="." instance=ExtResource("1_6n7q7")]
 unique_name_in_owner = true
