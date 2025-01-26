@@ -19,15 +19,26 @@ var rotation_direction
 	
 ## movimentação estilo carro
 @export var xp_next = 1
-
 @export var size = 1
 @onready var camera_2d: CustomCamera2D = $"../Camera2D"
 @onready var enemy_spawn: Path2D = $"../EnemySpawn"
+
+const EAT = preload("res://assets/Audios/eat.mp3")
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+
+func _on_ready():
+	pass
+	
+
+
 func get_input():
 	rotation_direction = Input.get_axis("left", "right")
 	velocity = transform.x * Input.get_axis("down", "up") * speed
 	if Input.is_action_just_released("ui_accept"):
 		add_xp(1)
+		
+		
 func _physics_process(delta):
 	get_input()
 	rotation += rotation_direction * rotation_speed * delta
@@ -59,9 +70,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	body = body.get_parent()
 	if body.is_in_group("ENEMIES"):
 		if body.has_method("get_xp"):
+			
 			var xp = body.get_xp()
 			Globals.points += 10
 			Globals.updateProgress()
+			
+			audio_stream_player_2d.play()
 			$AnimatedSprite2D.play("eat",2)
+			
 			self.add_xp(xp)
 			body.die()

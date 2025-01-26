@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcfx5jldlwnwj"]
+[gd_scene load_steps=16 format=3 uid="uid://bcfx5jldlwnwj"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/player.gd" id="1_rtdtm"]
 [ext_resource type="Texture2D" uid="uid://dqfich3akbe0k" path="res://icon.svg" id="2_o7rye"]
 [ext_resource type="Texture2D" uid="uid://bxgufh0xnxbu7" path="res://assets/sprites/Bolha.png" id="3_qbkbt"]
+[ext_resource type="AudioStream" uid="uid://b8epsq8gxx3gx" path="res://assets/Audios/eat.mp3" id="4_tmt3f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bjiwh"]
 radius = 79.2465
@@ -101,5 +102,8 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_tx5ft")
 animation = &"eat"
 autoplay = "default"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tmt3f")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
