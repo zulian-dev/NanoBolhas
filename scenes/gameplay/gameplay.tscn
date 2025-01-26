@@ -68,15 +68,15 @@ grow_vertical = 2
 size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_kn83i")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8vb75")
-value = 66.08
+max_value = 10.0
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="Camera2D/Control/VBoxContainer/Panel"]
 wait_time = 2.0
+autostart = true
 
 [node name="Enemy" parent="." instance=ExtResource("3_xpbae")]
 
-[connection signal="timeout" from="Camera2D/Control/VBoxContainer/Panel/Timer" to="." method="_on_timer_timeout"]
 [node name="Enemy2" parent="." instance=ExtResource("3_xpbae")]
 position = Vector2(594, -232)
 
@@ -98,3 +98,5 @@ position = Vector2(709, 426)
 [node name="Enemy8" parent="." instance=ExtResource("3_xpbae")]
 position = Vector2(-124, 274)
 xp = 5
+
+[connection signal="timeout" from="Camera2D/Control/VBoxContainer/Panel/Timer" to="." method="_on_timer_timeout"]

@@ -1,10 +1,9 @@
 extends Node2D
-var points = 0
 
+var enemies = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-	%HpPlayer.value = points
+	Globals.hp_player = %HpPlayer
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -12,5 +11,6 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	points = points-1
-	%HpPlayer.value = points
+	if Globals.points > 0:
+		Globals.points -= 3
+		Globals.updateProgress()

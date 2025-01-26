@@ -15,7 +15,7 @@ func get_xp():
 	
 func die():
 	%EnemyPath.progress_ratio = randf()
-	self.position = %EnemyPath.global_position/2
+	self.position = %EnemyPath.global_position
 
 
 
