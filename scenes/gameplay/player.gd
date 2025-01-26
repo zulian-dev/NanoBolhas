@@ -4,16 +4,29 @@ extends CharacterBody2D
 @export var level = 0
 @export var xp = 0
 @export var xp_next = 5
+@export var rotation_speed = 3
+var rotation_direction
 
-
+## movimentação padrao
+#func get_input():
+	#var input_direction = Input.get_vector("left", "right", "up", "down")
+	#velocity = input_direction * speed
+	#if Input.is_action_just_released("ui_accept"):
+		#add_xp(1)
+#
+#func _physics_process(delta):
+	#get_input()
+	#move_and_slide()
+	
+## movimentação estilo carro
 func get_input():
-	var input_direction = Input.get_vector("left", "right", "up", "down")
-	velocity = input_direction * speed
+	rotation_direction = Input.get_axis("left", "right")
+	velocity = transform.x * Input.get_axis("down", "up") * speed
 	if Input.is_action_just_released("ui_accept"):
 		add_xp(1)
-
 func _physics_process(delta):
 	get_input()
+	rotation += rotation_direction * rotation_speed * delta
 	move_and_slide()
 
 func level_up(xpBase = 100, fatorCrescimento = 1.5):
