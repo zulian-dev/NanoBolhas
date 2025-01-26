@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnlvl2ebp6oo2"]
+[gd_scene load_steps=4 format=3 uid="uid://bnlvl2ebp6oo2"]
 
 [ext_resource type="Script" path="res://prefabs/enemy.gd" id="1_iqqh2"]
-[ext_resource type="Texture2D" uid="uid://dqfich3akbe0k" path="res://icon.svg" id="2_i8rtd"]
+[ext_resource type="Texture2D" uid="uid://br1m1xl52y6mb" path="res://assets/sprites/poeira.png" id="2_4wrsv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_snxj2"]
 radius = 66.4831
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k28us"]
-blend_mode = 2
 
 [node name="Enemy" type="Node2D" groups=["ENEMIES"]]
 position = Vector2(297, -116)
@@ -19,7 +16,8 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_snxj2")
+debug_color = Color(0.989281, 0, 0.297688, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("CanvasItemMaterial_k28us")
-texture = ExtResource("2_i8rtd")
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_4wrsv")
