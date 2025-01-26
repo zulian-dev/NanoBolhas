@@ -76,10 +76,7 @@ Exemplo: "É um jogo de ação em plataforma 2D, com foco em precisão
 e narrativa ambiental."
 -->
 
-É um jogo de movimentação em 8 direções de exploração e coleta de
-itens 
-
-
+É um jogo de movimentação em 8 direções de exploração e coleta de itens
 
 #### O que as pessoas fazem enquanto jogam?
 
@@ -144,6 +141,25 @@ ruínas de cidades antigas para descobrir os segredos de seu passado."
 -->
 
 ### Personagens
+
+#### Bolha
+
+A Bolha foi criada pelo Dr Mattei, um cientista que queria criar um ser
+capaz de devorar o lixo do mundo.
+
+No primeiro teste a Bolha deveria devorar alguns microorganismos, mas um
+erro de cálculo fez com que a Bolha crescesse a cada microorganismo
+devorado, ela acabou decorando todo o laboratório e o Dr Mattei.
+
+##### Dr Mattei
+
+O Dr.Mattei é um cientista que queria resolver o problema do lixo no
+mundo, ele criou a Bolha para isso, mas um erro acabou sendo devorado
+
+##### Coronel Zulian
+
+O Coronel Zulian é um militar que quer parar o crescimento da bolha, Ele
+envia militares e tanques de guerra para tentar parar a Bolha.
 
 <!--
 TODO:
@@ -287,6 +303,65 @@ O diálogo será sincronizado com as cutscenes para dar peso à narrativa.”
 ## Níveis e Cenários
 
 ### Design dos Níveis
+
+#### Placa de petri
+
+- é o primeiro nível do jogo, onde o jogador aprende as mecânicas
+  básicas de movimentação e interação com o ambiente.
+
+- O Jogador deverá coletar os microorganismos para crescer e se tornar
+  maior E poder sair da placa de petri.
+
+#### Laboratorio
+
+- o jogador deverá coletar os itens do laboratorio para crescer até
+  conseguir devorar o Dr.Mattei.
+
+#### Cidade
+
+- Coronel zulian entra em um Mecha.
+
+- o jogador deverá coletar itens para crescer e enfrentar os militares
+  que tentam parar a Bolha.
+
+- Os militares tentarão parar a Bolha com tanques de guerra e armas de
+  fogo. Fazendo a Bolha perder tamanho, tendo que devorar mais coisas
+  para crescer.
+
+- O jogador deverá coletar itens para crescer e devorar o Coronel
+  Zulian.
+
+#### Universo
+
+- O Universo é o terceiro nível do jogo, Dr.Mattei consegue sair da
+  bolha,
+
+- Dr Mattei irá coletar planetas para crescer e tentar devorar a Bolha.
+
+- o jogador deverá coletar mais planetas para crescer e devorar o
+  Dr.Mattei.
+
+#### conquistas
+
+| Faze        |   xp | Nome            |
+|:------------|-----:|:----------------|
+| Laboratorio |    1 | Microorganismos |
+| Laboratorio |    5 | Placa de Petri  |
+| Laboratorio |   10 | Cadeira         |
+| Laboratorio |   10 | Mesa            |
+| Laboratorio |  100 | Dr.Mattei       |
+| Cidade      |    1 | lixo            |
+| Cidade      |    5 | Rato            |
+| Cidade      |   10 | Cachorro        |
+| Cidade      |  100 | Humano          |
+| Cidade      |  150 | Moto            |
+| Cidade      |  200 | Carro           |
+| Cidade      |  800 | Tanque          |
+| Cidade      | 1000 | Coronel Zulian  |
+| Universo    |    1 | Lua             |
+| Universo    |   10 | Planeta         |
+| Universo    |  100 | Estrela         |
+| Universo    | 1000 | Dr.Mattei       |
 
 <!--
 TODO:
