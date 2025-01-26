@@ -14,7 +14,7 @@ func _on_timer_timeout() -> void:
 	if Globals.points > 0:
 		Globals.points -= 3
 		Globals.updateProgress()
-	if get_tree().get_nodes_in_group("ENEMIES").size() <= 10:
+	if get_tree().get_nodes_in_group("ENEMIES").size() <= 30:
 		var newenemy = ENEMY.instantiate()
 		%EnemyPath.progress_ratio = randf()
 		newenemy.position = %EnemyPath.global_position
