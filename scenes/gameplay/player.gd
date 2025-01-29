@@ -73,8 +73,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			
 			var xp = body.get_xp()
 			
-			Globals.points += 10
-			Globals.updateProgress()
 			
 			audio_stream_player_2d.play()
 			Globals.killed += 1
